@@ -109,7 +109,7 @@ La bici più leggera è la bici ${nome} con un peso di ${peso}`);
         const ArrayFalli = [];
 
         for (let i = 0; i < Squadre.length; i++) {
-            let {nome,falliSubiti} = Squadre[i]; 
+            const {nome,falliSubiti} = Squadre[i]; 
             ArrayFalli.push({nome,falliSubiti});
         }
 
