@@ -1,5 +1,10 @@
 $(function () {
 
+
+    function genRandom(min, max){
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
     // 1° Snack
     function snackBici() {
         /* 
@@ -54,5 +59,68 @@ $(function () {
 La bici più leggera è la bici ${nome} con un peso di ${peso}`);
     }
 
-    snackBici();
+    //2° Snack
+
+    function snackCalcio(){
+/*   Snack2
+
+    Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
+    Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+    Generare numeri random al posto degli 0 nelle proprietà:
+    Punti fatti e falli subiti.
+    Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console. */
+
+        const Squadre = [
+            {
+                nome: "Roma",
+                punti: 0,
+                falliSubiti: 0
+            }, {
+                nome: "Lazio",
+                punti: 0,
+                falliSubiti: 0
+            }, {
+                nome: "Milan",
+                punti: 0,
+                falliSubiti: 0
+            }, {
+                nome: "Inter",
+                punti: 0,
+                falliSubiti: 0
+            }, {
+                nome: "Torino",
+                punti: 0,
+                falliSubiti: 0
+            }, {
+                nome: "Juventus",
+                punti: 0,
+                falliSubiti: 0
+            }
+        ];
+
+        for (let i = 0; i < Squadre.length; i++) {
+            Squadre[i].punti = genRandom(0,100);
+            Squadre[i].falliSubiti = genRandom(20,60);
+        }
+
+        console.log(Squadre);
+
+        //Nuovo array con nome e falli
+        const ArrayFalli = [];
+
+        for (let i = 0; i < Squadre.length; i++) {
+            let {nome,falliSubiti} = Squadre[i]; 
+            ArrayFalli.push({nome,falliSubiti});
+        }
+
+        console.log(`Nuovo array con solo i falli e nomi squadre
+        `);
+
+        for (const key in ArrayFalli) {
+            console.log(`${ArrayFalli[key].nome} falli subiti --> ${ArrayFalli[key].falliSubiti}`); 
+        }
+    }
+
+    //snackBici();
+    snackCalcio();
 });
