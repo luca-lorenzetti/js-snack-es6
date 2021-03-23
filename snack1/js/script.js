@@ -4,27 +4,33 @@ $(function(){
 
     let array = [10,43,12,56,90,100,2,1,4];
     
-    console.log(`Array prima della funzione:  ${array}`);
+    console.log(`Array prima del filter -->  ${array}`
+                );
+    // console.log( getPositionBetween( array, 0, 3) );
 
-    console.log( getPositionBetween(array,0,3));
+    let min = 2;
+    let max = 6;
 
-     function getPositionBetween(array, a, b){
-         let newArray = [];
-         let start = false;
+    const newArray = array.filter( (element,index)=>element = index >= min && index <= max);
 
-        for (let i = 0; i < array.length; i++) {
-            if( i == a ){
-                start = true;
-            }
-            else if( i == b ){
-                start = false;
-                newArray.push( array[i] );
-            }
-            if( start ){
-                newArray.push( array[i] );
-            }
-        }
+    console.log(`Array dopo il filter --> ${newArray}`);
+    //  function getPositionBetween(array, a, b){
+    //      let newArray = [];
+    //      let start = false;
 
-        return newArray;
-     }
+    //     for (let i = 0; i < array.length; i++) {
+    //         if( i == a ){
+    //             start = true;
+    //         }
+    //         else if( i == b ){
+    //             start = false;
+    //             newArray.push( array[i] );
+    //         }
+    //         if( start ){
+    //             newArray.push( array[i] );
+    //         }
+    //     }
+
+    //     return newArray;
+    //  }
 });

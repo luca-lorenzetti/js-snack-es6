@@ -98,27 +98,49 @@ La bici più leggera è la bici ${nome} con un peso di ${peso}`);
             }
         ];
 
-        for (let i = 0; i < Squadre.length; i++) {
+      /*   for (let i = 0; i < Squadre.length; i++) {
             Squadre[i].punti = genRandom(0,100);
             Squadre[i].falliSubiti = genRandom(20,60);
-        }
-
-        console.log(Squadre);
+        } */
 
         //Nuovo array con nome e falli
-        const ArrayFalli = [];
+    /*       const ArrayFalli = [];
 
         for (let i = 0; i < Squadre.length; i++) {
             const {nome,falliSubiti} = Squadre[i]; 
             ArrayFalli.push({nome,falliSubiti});
-        }
-
-        console.log(`Nuovo array con solo i falli e nomi squadre
+        } 
+        
+               console.log(`Nuovo array con solo i falli e nomi squadre
         `);
 
         for (const key in ArrayFalli) {
             console.log(`${ArrayFalli[key].nome} falli subiti --> ${ArrayFalli[key].falliSubiti}`); 
         }
+        */
+
+            // MAP
+
+            const arrayWithPtAndFalli = Squadre.map((element) => {
+                element.punti = genRandom(10,100);
+                element.falliSubiti = genRandom(30,80);
+
+                return element;
+            });
+
+
+            console.log(arrayWithPtAndFalli);
+
+            const newArrayWithOutFalli = arrayWithPtAndFalli.map((element) => {
+                element.falliSubiti = genRandom(30,80);
+
+                let {nome, falliSubiti} = element;
+
+                return{nome, falliSubiti};
+            });
+
+            console.log(newArrayWithOutFalli);
+ 
     }
 
     //snackBici();
